@@ -25,6 +25,7 @@ function regressaoLinear(x, y) {
     return m;
 }
 
+let mediaValores = 0;
 for (let i = 1; i < 5; i++) {
     const amostra = require(`./Data/json/Amostra${i}.json`);
 
@@ -32,5 +33,9 @@ for (let i = 1; i < 5; i++) {
     const y = amostra.map(item => item.y);
 
     const coeficienteAngular = regressaoLinear(x, y);
+    mediaValores += coeficienteAngular;
     console.log(`Coeficiente Angular Amostra ${i}: ${coeficienteAngular}`)
 }
+
+mediaValores = (mediaValores / 4)
+console.log(`Média: ${mediaValores}`)
